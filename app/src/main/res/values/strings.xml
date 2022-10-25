@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Dagger News Application</string>
+    <string name="title">Title</string>
+    <string name="desc">Description</string>
+    <string name="source">Source</string>
+    <string name="date">5 hour ago</string>
+    <string name="edtxt">Type a text here</string>
+    <string name="heading">Favourite</string>
+    <string name="news_source">News Source</string>
+    <string name="msg_token_fmt">F Tokken</string>
+
+</resources>
