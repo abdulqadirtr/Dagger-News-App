@@ -1,59 +1,53 @@
-package com.example.daggernewsapplication.ui
+package com.example.daggernewsapplication.ui.fragments
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.LayoutInflater
 import android.view.View
-import androidx.activity.viewModels
-import androidx.lifecycle.ViewModel
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.fragment.findNavController
 import com.example.daggernewsapplication.R
-import com.example.daggernewsapplication.databinding.ActivityMainBinding
+import com.example.daggernewsapplication.databinding.FragmentMainBinding
 import com.example.daggernewsapplication.di.MyApplication
 import com.example.daggernewsapplication.ui.adapter.NewsAdapter
 import com.example.daggernewsapplication.ui.viewmodels.MainViewModel
+import com.google.android.material.snackbar.Snackbar
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainFragment : Fragment() {
 
-    /*  */
-    /**
-     * @author Abdul Qadir
-     *//*
-
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: FragmentMainBinding
 
     private lateinit var adapter : NewsAdapter
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    private val viewModel: MainViewModel by viewModels {
+    private val viewModel: MainViewModel by activityViewModels() {
         viewModelFactory
-    }*/
+    }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        (requireActivity().application as MyApplication).appComponent?.inject(this)
+        binding = FragmentMainBinding.inflate(layoutInflater)
+        return binding.root
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        //Dagger Inject
-        (application as MyApplication).appComponent?.inject(this)
-
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.navHost) as NavHostFragment
-        val navController = navHostFragment.navController
-        setupActionBarWithNavController(navController)
-
-
-/*
         adapter = NewsAdapter()
 
-        //Dagger Inject
-        (application as MyApplication).appComponent?.inject(this)
-
-
+        adapter.itemClickListener = {
+            viewModel.updateArticles(it)
+            findNavController().navigate(R.id.action_mainFragment_to_detailsFragment)
+        }
         binding.header.setText(resources.getText(R.string.app_name))
         binding.btnClear.setOnClickListener(View.OnClickListener { binding.edtSearch.setText("") })
 
@@ -72,11 +66,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initObserver(){
-        viewModel.articles.observe(this) {
+        viewModel.articles.observe(viewLifecycleOwner) {
             adapter.setItems(it)
             binding.recyclerView!!.adapter = adapter
             binding.progressBar.visibility = View.GONE
         }
-    }*/
     }
-}
+
+    }

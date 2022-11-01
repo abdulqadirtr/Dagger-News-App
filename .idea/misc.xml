@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/aquadir/AndroidStudioProjects/DaggerNewsApplication/app/src/main/res/drawable-v24/gradient.xml" value="0.1" />
         <entry key="..\:/Users/aquadir/AndroidStudioProjects/DaggerNewsApplication/app/src/main/res/drawable/custom_bg.xml" value="0.121" />
         <entry key="..\:/Users/aquadir/AndroidStudioProjects/DaggerNewsApplication/app/src/main/res/drawable/ic_round_clear.xml" value="0.121" />
         <entry key="..\:/Users/aquadir/AndroidStudioProjects/DaggerNewsApplication/app/src/main/res/drawable/ic_search.xml" value="0.121" />
         <entry key="..\:/Users/aquadir/AndroidStudioProjects/DaggerNewsApplication/app/src/main/res/font/bevan.xml" value="0.20989583333333334" />
         <entry key="..\:/Users/aquadir/AndroidStudioProjects/DaggerNewsApplication/app/src/main/res/layout/activity_main.xml" value="0.13949275362318841" />
+        <entry key="..\:/Users/aquadir/AndroidStudioProjects/DaggerNewsApplication/app/src/main/res/layout/fragment_details.xml" value="0.11775362318840579" />
+        <entry key="..\:/Users/aquadir/AndroidStudioProjects/DaggerNewsApplication/app/src/main/res/layout/fragment_main.xml" value="0.15579710144927536" />
         <entry key="..\:/Users/aquadir/AndroidStudioProjects/DaggerNewsApplication/app/src/main/res/layout/items_news.xml" value="0.1" />
       </map>
     </option>

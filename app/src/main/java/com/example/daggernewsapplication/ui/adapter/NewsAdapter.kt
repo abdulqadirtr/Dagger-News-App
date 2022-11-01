@@ -13,6 +13,8 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.MyViewHolder>() {
 
      private val newsList : MutableList<ArticlesItem> = mutableListOf()
 
+    var itemClickListener : (ArticlesItem?) -> Unit = { }
+
     inner class MyViewHolder(item : ItemsNewsBinding) : RecyclerView.ViewHolder(item.root) {
 
         fun bind(articlesItem: ArticlesItem) {
@@ -22,6 +24,9 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.MyViewHolder>() {
             binding.tvDesc.text = articlesItem.description
             val imgUrl = articlesItem.urlToImage
             Picasso.get().load(imgUrl).into(binding.image)
+            itemView.setOnClickListener {
+                itemClickListener.invoke(articlesItem)
+            }
         }
     }
 

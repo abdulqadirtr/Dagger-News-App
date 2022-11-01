@@ -23,12 +23,20 @@ class MainViewModel @Inject constructor(private val repository: NewsRepository) 
     val page: Int
         get() = _page
 
+    private var _articlesValues = MutableLiveData<ArticlesItem>()
+    val articlesValues : LiveData<ArticlesItem>
+    get() = _articlesValues
+
 
   init {
       getNews(queryText, page)
   }
      fun updateText(query : String) {
         _queryText = query
+    }
+
+    fun updateArticles(articles: ArticlesItem?) {
+        _articlesValues.value = articles
     }
 
     fun updatePage(pageNumber : Int) {
